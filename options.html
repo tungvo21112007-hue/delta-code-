@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cấu hình AI - Delta Force Giftcode</title>
+  <link rel="stylesheet" href="options.css">
+  <script src="options.js" defer></script>
+</head>
+<body>
+  <main class="options">
+    <header>
+      <p class="eyebrow">DELTA FORCE / AI SEARCH</p>
+      <h1>Cấu hình tìm kiếm AI</h1>
+      <p class="intro">Thiết lập nhà cung cấp mô hình, SearXNG và dịch vụ crawl tùy chọn.</p>
+    </header>
+
+    <form id="settingsForm">
+      <label>
+        Nhà cung cấp AI
+        <select id="aiProvider" name="aiProvider">
+          <option value="gemini">Google Gemini</option>
+          <option value="openai">OpenAI GPT-4o-mini</option>
+          <option value="deepseek">DeepSeek</option>
+        </select>
+      </label>
+      <label>
+        API key
+        <input id="aiApiKey" name="aiApiKey" type="password" autocomplete="new-password" spellcheck="false" placeholder="Để trống để giữ API key hiện tại">
+      </label>
+      <div class="key-actions">
+        <small id="keyState">Đang đọc trạng thái API key…</small>
+        <label class="check"><input id="clearApiKey" type="checkbox"> Xóa API key đã lưu</label>
+      </div>
+      <label>
+        Search API Key (Tavily, tùy chọn)
+        <input id="searchApiKey" name="searchApiKey" type="password" autocomplete="new-password" spellcheck="false" placeholder="SearXNG không cần API key">
+      </label>
+      <div class="key-actions">
+        <small id="searchKeyState">Đang đọc trạng thái Search key…</small>
+        <label class="check"><input id="clearSearchApiKey" type="checkbox"> Xóa Search API key</label>
+      </div>
+      <div class="columns">
+        <label>
+          Tên model (không bắt buộc)
+          <input id="aiModel" name="aiModel" type="text" autocomplete="off" placeholder="Dùng model mặc định của nhà cung cấp">
+        </label>
+        <label>
+          API base URL (không bắt buộc)
+          <input id="aiBaseUrl" name="aiBaseUrl" type="url" autocomplete="url" placeholder="Dùng URL mặc định của nhà cung cấp">
+        </label>
+      </div>
+      <label>
+        Địa chỉ SearXNG
+        <input id="searxngUrl" name="searxngUrl" type="url" autocomplete="url" placeholder="http://localhost:8080" required>
+      </label>
+      <p class="help">SearXNG phải cho phép phản hồi JSON ở đường dẫn <code>/search</code>. Khi tìm lần đầu, Chrome sẽ hỏi quyền truy cập origin.</p>
+      <details>
+        <summary>Dịch vụ crawl tùy chọn</summary>
+        <label>
+          Crawl4AI URL
+          <input id="crawl4aiUrl" name="crawl4aiUrl" type="url" autocomplete="url" placeholder="http://localhost:11235">
+        </label>
+        <label>
+          Crawl4AI token (không bắt buộc)
+          <input id="crawl4aiToken" name="crawl4aiToken" type="password" autocomplete="new-password" spellcheck="false">
+        </label>
+      </details>
+      <div class="form-actions">
+        <button type="submit">Lưu cấu hình</button>
+        <span id="saveStatus" role="status" aria-live="polite"></span>
+      </div>
+    </form>
+    <p class="storage-note">API key được lưu trong bộ nhớ cục bộ của Chrome extension trên thiết bị này; đây không phải kho bí mật được mã hóa.</p>
+  </main>
+</body>
+</html>

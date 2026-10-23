@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" width="720" height="540" preserveAspectRatio="xMidYMid slice">
+  <title>Night ink wash mountains (deep) - 4:3</title>
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="4" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.75  0 0 0 0 0.80  0 0 0 0 0.82  0 0 0 0.07 0"/>
+    </filter>
+    <filter id="fiber" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.010 0.16" numOctaves="2" seed="8" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.7  0 0 0 0 0.75  0 0 0 0 0.78  0 0 0 0.06 0"/>
+    </filter>
+    <filter id="bleedFar" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="12" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="14" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="3.2"/>
+    </filter>
+    <filter id="bleedMid" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="3" seed="22" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="10" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="1.8"/>
+    </filter>
+    <filter id="bleedNear" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="6" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="0.9"/>
+    </filter>
+    <filter id="mist" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <filter id="halo" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="moonEdge" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="2" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="3" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="0.8"/>
+    </filter>
+    <filter id="brush" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="2" seed="9" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#05080b"/>
+      <stop offset=".55" stop-color="#0b1015"/>
+      <stop offset="1" stop-color="#151c22"/>
+    </linearGradient>
+    <linearGradient id="inkFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a4851" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#3a4851" stop-opacity=".03"/>
+    </linearGradient>
+    <linearGradient id="inkMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#222c33" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#222c33" stop-opacity=".05"/>
+    </linearGradient>
+    <linearGradient id="inkNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#05080b" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#0a0e12" stop-opacity=".35"/>
+    </linearGradient>
+    <linearGradient id="mistG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c9d3d8" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#c9d3d8" stop-opacity=".19"/>
+      <stop offset="1" stop-color="#c9d3d8" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="moonGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#e8eef0" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#e8eef0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx=".5" cy=".5" r=".78">
+      <stop offset=".55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".72"/>
+    </radialGradient>
+
+    <g id="pine" fill="none" stroke="#04070a" stroke-linecap="round">
+      <path d="M0 0 C-2 -30 3 -60 0 -96" stroke-width="3.4"/>
+      <path d="M0 -24 C-14 -28 -26 -24 -34 -14 M0 -24 C13 -28 25 -23 32 -13" stroke-width="2.4"/>
+      <path d="M0 -44 C-12 -49 -22 -45 -29 -35 M0 -44 C11 -48 21 -44 27 -34" stroke-width="2.2"/>
+      <path d="M0 -63 C-10 -67 -18 -64 -24 -55 M0 -63 C9 -66 17 -62 22 -54" stroke-width="2"/>
+      <path d="M0 -81 C-8 -84 -14 -81 -18 -74 M0 -81 C7 -83 13 -80 16 -73" stroke-width="1.8"/>
+      <g stroke-width="5" opacity=".6">
+        <path d="M-34 -14 l-6 5 M-26 -24 l-5 4 M32 -13 l6 5 M25 -23 l5 4 M-29 -35 l-5 4 M27 -34 l5 4"/>
+      </g>
+    </g>
+  </defs>
+
+  <!-- 1. Trời đêm + hạt giấy -->
+  <rect width="720" height="540" fill="url(#sky)"/>
+  <rect width="720" height="540" filter="url(#grain)"/>
+  <rect width="720" height="540" filter="url(#fiber)"/>
+
+  <!-- 2. Trăng: quầng sáng + vầng trăng + vài vệt mây mực -->
+  <circle cx="350" cy="28" r="90" fill="url(#moonGlow)" filter="url(#halo)"/>
+  <circle cx="350" cy="28" r="16" fill="#e9eff0" opacity=".95" filter="url(#moonEdge)"/>
+  <circle cx="345" cy="24" r="12" fill="#ffffff" opacity=".2" filter="url(#moonEdge)"/>
+  <g filter="url(#mist)" fill="none" stroke="#9fb0b8" stroke-linecap="round" opacity=".22">
+    <path d="M276 26 C306 22 336 28 378 31" stroke-width="5"/>
+    <path d="M334 42 C372 39 410 44 446 40" stroke-width="5"/>
+  </g>
+
+  <!-- 3. Núi xa -->
+  <path filter="url(#bleedFar)" fill="url(#inkFar)"
+        d="M0 262 C48 244 78 208 128 218 C172 227 198 180 246 162 C288 146 314 188 348 208 C392 234 428 168 480 140 C524 118 560 150 600 132 C646 112 690 134 720 150 L720 420 L0 420 Z"/>
+
+  <ellipse cx="170" cy="312" rx="250" ry="24" fill="url(#mistG)" filter="url(#mist)"/>
+  <ellipse cx="560" cy="268" rx="210" ry="20" fill="url(#mistG)" filter="url(#mist)"/>
+
+  <!-- 4. Núi giữa -->
+  <path filter="url(#bleedMid)" fill="url(#inkMid)"
+        d="M0 372 C38 352 66 314 114 310 C162 306 196 268 240 278 C280 286 302 322 338 328 C396 338 424 282 480 250 C524 226 562 250 600 234 C644 216 684 236 720 254 L720 500 L0 500 Z"/>
+
+  <ellipse cx="360" cy="378" rx="300" ry="28" fill="url(#mistG)" filter="url(#mist)"/>
+  <ellipse cx="84" cy="440" rx="190" ry="20" fill="url(#mistG)" filter="url(#mist)"/>
+
+  <!-- 5. Núi gần (bóng tối), chừa trống ở giữa -->
+  <path filter="url(#bleedNear)" fill="url(#inkNear)"
+        d="M0 420 C32 402 56 372 92 368 C128 364 150 390 176 402 C200 413 216 440 210 540 L0 540 Z"/>
+  <path filter="url(#bleedNear)" fill="url(#inkNear)"
+        d="M720 386 C688 378 664 346 628 350 C590 354 568 386 538 404 C514 419 502 448 514 540 L720 540 Z"/>
+
+  <g filter="url(#brush)" fill="none" stroke="#6f808a" stroke-linecap="round" opacity=".30">
+    <path d="M66 386 C78 398 86 412 88 432" stroke-width="1.5"/>
+    <path d="M104 380 C115 393 122 408 124 428" stroke-width="1.1"/>
+    <path d="M652 364 C640 376 632 392 630 412" stroke-width="1.5"/>
+    <path d="M612 360 C601 374 594 388 592 406" stroke-width="1.1"/>
+  </g>
+
+  <!-- 6. Thông -->
+  <g filter="url(#brush)" opacity=".95">
+    <use href="#pine" transform="translate(48 478) scale(1.2)"/>
+    <use href="#pine" transform="translate(98 492) scale(.88)" opacity=".85"/>
+    <use href="#pine" transform="translate(140 506) scale(.6)" opacity=".65"/>
+    <use href="#pine" transform="translate(676 462) scale(1.1)"/>
+    <use href="#pine" transform="translate(630 482) scale(.8)" opacity=".8"/>
+    <use href="#pine" transform="translate(588 498) scale(.54)" opacity=".6"/>
+  </g>
+
+  <ellipse cx="360" cy="520" rx="340" ry="30" fill="url(#mistG)" filter="url(#mist)"/>
+
+  <!-- 7. Tối viền -->
+  <rect width="720" height="540" fill="url(#vignette)"/>
+</svg>

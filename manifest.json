@@ -1,0 +1,81 @@
+{
+  "manifest_version": 3,
+  "name": "Delta Force Giftcode - Nhập tự động",
+  "version": "1.6.1",
+  "description": "Dán danh sách giftcode và tự động nhập lần lượt trên trang đổi thưởng Delta Force của Garena. Tự tìm code mới từ nhiều nguồn và AI. Tự nhận diện giftcode trên trang và lưu nhanh.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://maytinhdaiviet.com/*",
+    "https://tomko.com.vn/*",
+    "https://mygear.com.vn/*",
+    "https://download.com.vn/*",
+    "https://trangmmo.com/*",
+    "https://fpt.vn/*",
+    "https://cellphones.com.vn/*",
+    "https://fptshop.com.vn/*",
+    "https://thapdien.com/*",
+    "https://thethao247.vn/*",
+    "https://www.topuplive.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.openai.com/*",
+    "https://api.deepseek.com/*",
+    "https://api.tavily.com/*",
+    "http://localhost:8080/*",
+    "http://127.0.0.1:8080/*",
+    "http://localhost:11235/*",
+    "http://127.0.0.1:11235/*"
+  ],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Nhập giftcode Delta Force",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://maytinhdaiviet.com/*",
+        "https://tomko.com.vn/*",
+        "https://mygear.com.vn/*",
+        "https://download.com.vn/*",
+        "https://trangmmo.com/*",
+        "https://fpt.vn/*",
+        "https://cellphones.com.vn/*",
+        "https://fptshop.com.vn/*",
+        "https://thapdien.com/*",
+        "https://thethao247.vn/*",
+        "https://www.topuplive.com/*"
+      ],
+      "js": [
+        "extract.js",
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}

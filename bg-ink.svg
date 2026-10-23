@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 570" width="760" height="570" preserveAspectRatio="xMidYMid slice">
+  <title>Ink wash mountains - 4:3</title>
+  <defs>
+    <!-- Giấy dó: nền kem + hạt sợi -->
+    <filter id="paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.45  0 0 0 0 0.40  0 0 0 0 0.32  0 0 0 0.16 0"/>
+    </filter>
+    <filter id="fiber" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.18" numOctaves="2" seed="3" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.5  0 0 0 0 0.45  0 0 0 0 0.36  0 0 0 0.10 0"/>
+    </filter>
+
+    <!-- Mực loang: méo nhẹ + nhoè mép -->
+    <filter id="bleedFar" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="11" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="14" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="3.2"/>
+    </filter>
+    <filter id="bleedMid" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="3" seed="21" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="10" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="1.8"/>
+    </filter>
+    <filter id="bleedNear" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="5" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="0.9"/>
+    </filter>
+    <filter id="mist" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <filter id="brush" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="2" seed="9" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Loang đậm ở đỉnh, nhạt dần xuống chân núi -->
+    <linearGradient id="inkFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6d767c" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#9aa1a5" stop-opacity=".05"/>
+    </linearGradient>
+    <linearGradient id="inkMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4b5359" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#7d868b" stop-opacity=".06"/>
+    </linearGradient>
+    <linearGradient id="inkNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b3136" stop-opacity=".70"/>
+      <stop offset="1" stop-color="#4b5359" stop-opacity=".10"/>
+    </linearGradient>
+    <linearGradient id="mistG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f6f1e6" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#f6f1e6" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#f6f1e6" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx=".5" cy=".5" r=".75">
+      <stop offset=".6" stop-color="#f6f1e6" stop-opacity="0"/>
+      <stop offset="1" stop-color="#b9ad93" stop-opacity=".28"/>
+    </radialGradient>
+
+    <!-- Cây thông: thân + các tầng cành vẽ bằng nét cọ -->
+    <g id="pine" fill="none" stroke="#2b3136" stroke-linecap="round">
+      <path d="M0 0 C-2 -30 3 -60 0 -96" stroke-width="3.4"/>
+      <path d="M0 -24 C-14 -28 -26 -24 -34 -14 M0 -24 C13 -28 25 -23 32 -13" stroke-width="2.4"/>
+      <path d="M0 -44 C-12 -49 -22 -45 -29 -35 M0 -44 C11 -48 21 -44 27 -34" stroke-width="2.2"/>
+      <path d="M0 -63 C-10 -67 -18 -64 -24 -55 M0 -63 C9 -66 17 -62 22 -54" stroke-width="2"/>
+      <path d="M0 -81 C-8 -84 -14 -81 -18 -74 M0 -81 C7 -83 13 -80 16 -73" stroke-width="1.8"/>
+      <g stroke-width="5" opacity=".55">
+        <path d="M-34 -14 l-6 5 M-26 -24 l-5 4 M32 -13 l6 5 M25 -23 l5 4 M-29 -35 l-5 4 M27 -34 l5 4"/>
+      </g>
+    </g>
+  </defs>
+
+  <!-- 1. Giấy -->
+  <rect width="760" height="570" fill="#f6f1e6"/>
+  <rect width="760" height="570" filter="url(#paper)"/>
+  <rect width="760" height="570" filter="url(#fiber)"/>
+
+  <!-- 2. Núi xa (rất nhạt, nhoè mạnh) -->
+  <path filter="url(#bleedFar)" fill="url(#inkFar)"
+        d="M0 250 C50 232 80 196 130 206 C175 215 200 168 250 150 C292 134 318 176 352 196 C395 222 430 150 486 112 C530 82 566 118 606 96 C650 72 690 98 760 126 L760 400 L0 400 Z"/>
+
+  <!-- Sương mù tầng 1 -->
+  <ellipse cx="190" cy="300" rx="260" ry="26" fill="url(#mistG)" filter="url(#mist)"/>
+  <ellipse cx="600" cy="250" rx="220" ry="22" fill="url(#mistG)" filter="url(#mist)"/>
+
+  <!-- 3. Núi giữa -->
+  <path filter="url(#bleedMid)" fill="url(#inkMid)"
+        d="M0 360 C40 340 70 300 120 296 C170 292 205 252 250 262 C290 270 312 310 350 316 C410 326 440 266 498 232 C544 206 586 232 626 214 C672 194 716 216 760 236 L760 520 L0 520 Z"/>
+
+  <!-- Sương mù tầng 2 (chừa khoảng trống ở giữa) -->
+  <ellipse cx="380" cy="372" rx="320" ry="30" fill="url(#mistG)" filter="url(#mist)"/>
+  <ellipse cx="90" cy="440" rx="200" ry="22" fill="url(#mistG)" filter="url(#mist)"/>
+
+  <!-- 4. Núi gần: sườn trái và sườn phải, chừa trống ở giữa -->
+  <path filter="url(#bleedNear)" fill="url(#inkNear)"
+        d="M0 410 C34 392 60 360 98 356 C136 352 160 380 188 392 C214 404 232 432 226 570 L0 570 Z"/>
+  <path filter="url(#bleedNear)" fill="url(#inkNear)"
+        d="M760 372 C726 364 700 330 662 334 C622 338 598 372 566 392 C540 408 528 440 540 570 L760 570 Z"/>
+
+  <!-- Nét cọ khô trên sườn núi (thốn pháp) -->
+  <g filter="url(#brush)" fill="none" stroke="#2b3136" stroke-linecap="round" opacity=".38">
+    <path d="M70 372 C84 384 92 398 94 420" stroke-width="1.6"/>
+    <path d="M110 366 C122 380 130 396 132 416" stroke-width="1.2"/>
+    <path d="M150 384 C158 394 164 406 166 424" stroke-width="1"/>
+    <path d="M690 350 C676 362 668 378 666 400" stroke-width="1.6"/>
+    <path d="M648 346 C636 360 628 376 626 394" stroke-width="1.2"/>
+    <path d="M604 372 C596 384 590 396 588 414" stroke-width="1"/>
+  </g>
+
+  <!-- 5. Thông -->
+  <g filter="url(#brush)" opacity=".82">
+    <use href="#pine" transform="translate(52 470) scale(1.25)"/>
+    <use href="#pine" transform="translate(104 486) scale(.9)" opacity=".8"/>
+    <use href="#pine" transform="translate(150 500) scale(.62)" opacity=".6"/>
+    <use href="#pine" transform="translate(712 452) scale(1.15)"/>
+    <use href="#pine" transform="translate(664 474) scale(.82)" opacity=".75"/>
+    <use href="#pine" transform="translate(618 490) scale(.56)" opacity=".55"/>
+  </g>
+
+  <!-- Sương chân núi -->
+  <ellipse cx="380" cy="540" rx="360" ry="34" fill="url(#mistG)" filter="url(#mist)"/>
+
+  <!-- 6. Tối viền giấy -->
+  <rect width="760" height="570" fill="url(#vignette)"/>
+</svg>
